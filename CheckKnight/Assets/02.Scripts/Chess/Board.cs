@@ -122,7 +122,7 @@ public class Board : MonoBehaviour
                         IdxX = i;
                         IdxY = j;
                         //아래
-                        while (--IdxY > 0 && (board[IdxX, IdxY] == 0 || board[IdxX, IdxY] == 7))
+                        while (--IdxY >= 0 && (board[IdxX, IdxY] == 0 || board[IdxX, IdxY] == 7))
                             board[IdxX, IdxY] = 7;
                         break;
                     case 5://퀸일때
@@ -171,7 +171,7 @@ public class Board : MonoBehaviour
                         qIdxX = i;
                         qIdxY = j;
                         //아래
-                        while (--qIdxY > 0 && (board[qIdxX, qIdxY] == 0 || board[qIdxX, qIdxY] == 7))
+                        while (--qIdxY >= 0 && (board[qIdxX, qIdxY] == 0 || board[qIdxX, qIdxY] == 7))
                             board[qIdxX, qIdxY] = 7;
                         break;
                     case 6: // 킹일때
@@ -188,7 +188,7 @@ public class Board : MonoBehaviour
                             board[i + 1, j] = 7;
 
                         if (i - 1 >= 0 && board[i - 1, j] == 0)//왼쪽
-                            board[i - 1, j - 1] = 7;
+                            board[i - 1, j] = 7;
 
                         if (j + 1 < 8 && board[i, j + 1] == 0)//위쪽
                             board[i, j + 1] = 7;
