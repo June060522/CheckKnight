@@ -9,6 +9,7 @@ public class Board : MonoBehaviour
 
     private void Awake()
     {
+        GameObject.Find("GameManager");
         if (Instance == null)
             Instance = this;
         else
