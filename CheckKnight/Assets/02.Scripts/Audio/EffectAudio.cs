@@ -19,13 +19,15 @@ public class EffectAudio : MonoBehaviour
     {
         effVol = PlayerPrefs.GetFloat("effvol", 1f);
         EffVolume.value = effVol;
-        _audio.volume = EffVolume.value;
+        if(_audio != null)
+            _audio.volume = EffVolume.value;
 
     }
 
     void Update()
     {
-        _audio.volume = EffVolume.value;
+        if (_audio != null)
+            _audio.volume = EffVolume.value;
 
         effVol = EffVolume.value;
         PlayerPrefs.SetFloat("effvol", effVol);

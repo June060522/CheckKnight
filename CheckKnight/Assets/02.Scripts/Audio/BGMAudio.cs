@@ -14,13 +14,15 @@ public class BGMAudio : MonoBehaviour
     {
         backVol = PlayerPrefs.GetFloat("backvol", 1f);
         backVolume.value = backVol;
-        _audio.volume = backVolume.value;
+        if(_audio != null)
+            _audio.volume = backVolume.value;
 
     }
 
     void Update()
     {
-        _audio.volume = backVolume.value;
+        if (_audio != null)
+            _audio.volume = backVolume.value;
 
         backVol = backVolume.value;
         PlayerPrefs.SetFloat("backvol", backVol);
