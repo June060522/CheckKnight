@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class EnemyPiece : Piece
 {
-    private void OnEnable()
+    private void Awake()
     {
         x--;
         y--;
+    }
+    private void OnEnable()
+    {
         Board.Instance.board[x,y] = (int)pieceType;
         rect = GetComponent<RectTransform>();
         rect.anchoredPosition = new Vector2((x * 95) - 333, (y * 95) - 330);

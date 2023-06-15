@@ -20,21 +20,6 @@ public class BlackKing : MonoBehaviour
     {
         rect.anchoredPosition = new Vector2((xIndex * 95) - 333, (yIndex * 95) - 330);
     }
-    private void Update()
-    {
-        if(isAlive)
-        {
-            if (Input.GetKeyDown(KeyCode.W))
-                MoveUp();
-            else if (Input.GetKeyDown(KeyCode.A))
-                MoveLeft();
-            else if (Input.GetKeyDown(KeyCode.S))
-                MoveDown();
-            else if (Input.GetKeyDown(KeyCode.D))
-                MoveRight();
-            Die();
-        }
-    }
 
     private void MoveUp()
     {
