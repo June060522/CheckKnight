@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BlackKing : MonoBehaviour
 {
+    public static BlackKing Instance;
+
     [SerializeField] private int xIndex = 3;
     [SerializeField] private int yIndex = 0;
 
@@ -13,6 +15,7 @@ public class BlackKing : MonoBehaviour
     bool isAlive = true;
     private void Awake()
     {
+        Instance = this;
         rect = GetComponent<RectTransform>();
     }
 
@@ -21,22 +24,22 @@ public class BlackKing : MonoBehaviour
         rect.anchoredPosition = new Vector2((xIndex * 95) - 333, (yIndex * 95) - 330);
     }
 
-    private void MoveUp()
+    public void MoveUp()
     {
         rect.position = new Vector2(rect.position.x, rect.position.y + blocksize);
         yIndex++;
     }
-    private void MoveDown()
+    public void MoveDown()
     {
         rect.position = new Vector2(rect.position.x, rect.position.y - blocksize);
         yIndex--;
     }
-    private void MoveRight()
+    public void MoveRight()
     {
         rect.position = new Vector2(rect.position.x + blocksize, rect.position.y);
         xIndex++;
     }
-    private void MoveLeft()
+    public void MoveLeft()
     {
         rect.position = new Vector2(rect.position.x - blocksize, rect.position.y);
         xIndex--;

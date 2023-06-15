@@ -11,10 +11,12 @@ public class VerticalWall : MonoBehaviour
             if (other.transform.position.z > transform.position.z)
             {
                 other.transform.position = new Vector3(transform.position.x, other.transform.position.y, other.transform.position.z - 3f);
+                BlackKing.Instance.MoveDown();
             }
             else
             {
                 other.transform.position = new Vector3(transform.position.x, other.transform.position.y, other.transform.position.z + 3f);
+                BlackKing.Instance.MoveUp();
             }
         }
     }
