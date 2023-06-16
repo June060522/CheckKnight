@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class CircleWall : MonoBehaviour
 {
+    GameObject Board;
     bool isLeft = false;
     bool isUp = false;
+
+    private void Awake()
+    {
+        Board = GameObject.Find("BoradImg");
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.position.z > transform.position.z)
@@ -18,12 +24,14 @@ public class CircleWall : MonoBehaviour
         else
             isLeft = false;
 
+        Board.SetActive(true);
+
         if (isUp)
         {
             if(isLeft)
             {
                 other.transform.position = 
-                    new Vector3(transform.position.x + 10f, other.transform.position.y, other.transform.position.z - 15f);
+                    new Vector3(transform.position.x + 10f, other.transform.position.y, transform.position.z - 10f);
 
                 BlackKing.Instance.MoveRight();
                 BlackKing.Instance.MoveDown();
@@ -31,7 +39,7 @@ public class CircleWall : MonoBehaviour
             else
             {
                 other.transform.position = 
-                    new Vector3(transform.position.x - 10f, other.transform.position.y, other.transform.position.z - 15f);
+                    new Vector3(transform.position.x - 10f, other.transform.position.y, transform.position.z - 10f);
 
                 BlackKing.Instance.MoveLeft();
                 BlackKing.Instance.MoveDown();
@@ -42,7 +50,7 @@ public class CircleWall : MonoBehaviour
             if (isLeft)
             {
                 other.transform.position = 
-                    new Vector3(transform.position.x + 10f, other.transform.position.y, other.transform.position.z + 15f);
+                    new Vector3(transform.position.x + 10f, other.transform.position.y, transform.position.z + 10f);
 
                 BlackKing.Instance.MoveRight();
                 BlackKing.Instance.MoveUp();
@@ -50,11 +58,13 @@ public class CircleWall : MonoBehaviour
             else
             {
                 other.transform.position = 
-                    new Vector3(transform.position.x - 10f, other.transform.position.y, other.transform.position.z + 15f);
+                    new Vector3(transform.position.x - 10f, other.transform.position.y, transform.position.z + 10f);
 
                 BlackKing.Instance.MoveLeft();
                 BlackKing.Instance.MoveUp();
             }
         }
+
+        Board.SetActive(false);
     }
 }
