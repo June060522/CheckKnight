@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 #if UNITY_EDITOR
-    using UnityEditor;
+using UnityEditor;
     using System.Net;
 #endif
 
 public class FirstPersonController : MonoBehaviour
 {
     [SerializeField] GameObject BoardImg;
+    [SerializeField] Image blackScreen;
 
     private Rigidbody rb;
 
@@ -163,6 +165,9 @@ public class FirstPersonController : MonoBehaviour
         {
             crosshairObject.gameObject.SetActive(false);
         }
+
+        blackScreen.gameObject.SetActive(true);
+        StartCoroutine(BlackScreen());
 
         #region Sprint Bar
 
@@ -442,8 +447,6 @@ public class FirstPersonController : MonoBehaviour
         }
         #endregion
     }
-
-    // Sets isGrounded based on a raycast sent straigth down from the player object
     private void CheckGround()
     {
         Vector3 origin = new Vector3(transform.position.x, transform.position.y - (transform.localScale.y * .5f), transform.position.z);
@@ -527,5 +530,12 @@ public class FirstPersonController : MonoBehaviour
             timer = 0;
             joint.localPosition = new Vector3(Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.z, jointOriginalPos.z, Time.deltaTime * bobSpeed));
         }
+    }
+
+    IEnumerator BlackScreen()
+    {
+        blackScreen.DOFade(0, 1f);
+        yield return new WaitForSeconds(1f);
+        blackScreen.gameObject.SetActive(false);
     }
 }
