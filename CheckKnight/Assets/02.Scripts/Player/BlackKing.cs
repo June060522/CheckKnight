@@ -9,6 +9,9 @@ public class BlackKing : MonoBehaviour
     [SerializeField] private int xIndex = 3;
     [SerializeField] private int yIndex = 0;
 
+    public int x => xIndex;
+    public int y => yIndex;
+
     RectTransform rect;
     int blocksize = 95;
 

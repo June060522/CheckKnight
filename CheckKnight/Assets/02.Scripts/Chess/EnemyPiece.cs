@@ -15,4 +15,12 @@ public class EnemyPiece : Piece
         rect = GetComponent<RectTransform>();
         rect.anchoredPosition = new Vector2((x * 95) - 333, (y * 95) - 330);
     }
+
+    private void Update()
+    {
+        if(BlackKing.Instance.x == x && BlackKing.Instance.y ==y)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
