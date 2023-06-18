@@ -6,8 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class PlayButtonManager : MonoBehaviour
 {
+    public static PlayButtonManager Instance;
+
     [SerializeField] GameObject escPanel;
 
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))

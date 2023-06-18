@@ -1,0 +1,102 @@
+
+CheckKnight/Assets/01.Scenes/Intro.unity
+CheckKnight/Assets/01.Scenes/Stage1.unity
+CheckKnight/Assets/02.Scripts/Boarder/CircleWall.cs
+CheckKnight/Assets/02.Scripts/Boarder/HorizontalWall.cs
+CheckKnight/Assets/02.Scripts/Boarder/VerticalWall.cs
+CheckKnight/Assets/02.Scripts/GameRogic/MiniMap.cs
+CheckKnight/Assets/02.Scripts/Main.meta
+CheckKnight/Assets/02.Scripts/Main/Bullet.cs
+CheckKnight/Assets/02.Scripts/Main/Bullet.cs.meta
+CheckKnight/Assets/02.Scripts/Main/GameStart.cs
+CheckKnight/Assets/02.Scripts/Main/GameStart.cs.meta
+CheckKnight/Assets/02.Scripts/Main/Teleport.cs
+CheckKnight/Assets/02.Scripts/Main/Teleport.cs.meta
+CheckKnight/Assets/02.Scripts/Main/Tower.cs
+CheckKnight/Assets/02.Scripts/Main/Tower.cs.meta
+CheckKnight/Assets/02.Scripts/Main/TurretBlock.cs
+CheckKnight/Assets/02.Scripts/Main/TurretBlock.cs.meta
+CheckKnight/Assets/02.Scripts/Main/UI.meta
+CheckKnight/Assets/02.Scripts/Main/UI/HP.cs
+CheckKnight/Assets/02.Scripts/Main/UI/HP.cs.meta
+CheckKnight/Assets/02.Scripts/Main/UI/LimitMove.cs
+CheckKnight/Assets/02.Scripts/Main/UI/LimitMove.cs.meta
+CheckKnight/Assets/02.Scripts/Main/UI/LimitTime.cs
+CheckKnight/Assets/02.Scripts/Main/UI/LimitTime.cs.meta
+CheckKnight/Assets/02.Scripts/Manager/PlayButtonManager.cs
+CheckKnight/Assets/02.Scripts/Player/BlackKing.cs
+CheckKnight/Assets/02.Scripts/Player/CheckMark.cs
+CheckKnight/Assets/02.Scripts/Player/CheckMark.cs.meta
+CheckKnight/Assets/02.Scripts/Player/PlayerAttack.cs
+CheckKnight/Assets/03.Prefabs/Check.prefab
+CheckKnight/Assets/03.Prefabs/Check.prefab.meta
+CheckKnight/Assets/03.Prefabs/Exclamation.prefab
+CheckKnight/Assets/03.Prefabs/Exclamation.prefab.meta
+CheckKnight/Assets/03.Prefabs/Monster.meta
+CheckKnight/Assets/03.Prefabs/Monster/Bullet.prefab
+CheckKnight/Assets/03.Prefabs/Monster/Bullet.prefab.meta
+CheckKnight/Assets/03.Prefabs/Monster/Event.meta
+CheckKnight/Assets/03.Prefabs/Monster/Event/Teleport.prefab
+CheckKnight/Assets/03.Prefabs/Monster/Event/Teleport.prefab.meta
+CheckKnight/Assets/03.Prefabs/Monster/Event/Turret.prefab
+CheckKnight/Assets/03.Prefabs/Monster/Event/Turret.prefab.meta
+CheckKnight/Assets/03.Prefabs/Monster/Tower.prefab
+CheckKnight/Assets/03.Prefabs/Monster/Tower.prefab.meta
+CheckKnight/Assets/03.Prefabs/Question.prefab
+CheckKnight/Assets/03.Prefabs/Question.prefab.meta
+CheckKnight/Assets/04.Assets/board.png
+CheckKnight/Assets/04.Assets/board.png.meta
+CheckKnight/Assets/05.Materials/Defalut.mat
+CheckKnight/Assets/05.Materials/Defalut.mat.meta
+CheckKnight/Assets/05.Materials/White.mat
+CheckKnight/Assets/06.Animations/Great Sword Slash.controller
+CheckKnight/Assets/06.Animations/Great Sword Slash.controller.meta
+CheckKnight/Assets/06.Animations/Great Sword Slash.fbx
+CheckKnight/Assets/06.Animations/Great Sword Slash.fbx.meta
+CheckKnight/Assets/CanonTower.meta
+CheckKnight/Assets/CanonTower/FBX.meta
+CheckKnight/Assets/CanonTower/FBX/Materials.meta
+CheckKnight/Assets/CanonTower/FBX/Materials/No Name.mat
+CheckKnight/Assets/CanonTower/FBX/Materials/No Name.mat.meta
+CheckKnight/Assets/CanonTower/FBX/Tower_Base.FBX
+CheckKnight/Assets/CanonTower/FBX/Tower_Base.FBX.meta
+CheckKnight/Assets/CanonTower/FBX/Tower_Top.FBX
+CheckKnight/Assets/CanonTower/FBX/Tower_Top.FBX.meta
+CheckKnight/Assets/CanonTower/Materials.meta
+CheckKnight/Assets/CanonTower/Materials/Shield_Big_mat.mat
+CheckKnight/Assets/CanonTower/Materials/Shield_Big_mat.mat.meta
+CheckKnight/Assets/CanonTower/Materials/Tower_Base_Deco_mat.mat
+CheckKnight/Assets/CanonTower/Materials/Tower_Base_Deco_mat.mat.meta
+CheckKnight/Assets/CanonTower/Materials/Tower_Base_mat.mat
+CheckKnight/Assets/CanonTower/Materials/Tower_Base_mat.mat.meta
+CheckKnight/Assets/CanonTower/Materials/Tower_Top_Deco_mat.mat
+CheckKnight/Assets/CanonTower/Materials/Tower_Top_Deco_mat.mat.meta
+CheckKnight/Assets/CanonTower/Materials/Tower_Top_mat.mat
+CheckKnight/Assets/CanonTower/Materials/Tower_Top_mat.mat.meta
+CheckKnight/Assets/CanonTower/Prefabs.meta
+CheckKnight/Assets/CanonTower/Textures.meta
+CheckKnight/Assets/CanonTower/Textures/Shield_Big_dif.png
+CheckKnight/Assets/CanonTower/Textures/Shield_Big_dif.png.meta
+CheckKnight/Assets/CanonTower/Textures/Tower_Base_Deco_dif.png
+CheckKnight/Assets/CanonTower/Textures/Tower_Base_Deco_dif.png.meta
+CheckKnight/Assets/CanonTower/Textures/Tower_Base_Dif.png
+CheckKnight/Assets/CanonTower/Textures/Tower_Base_Dif.png.meta
+CheckKnight/Assets/CanonTower/Textures/Tower_Top_Deco_Dif.png
+CheckKnight/Assets/CanonTower/Textures/Tower_Top_Deco_Dif.png.meta
+CheckKnight/Assets/CanonTower/Textures/Tower_Top_Dif.png
+CheckKnight/Assets/CanonTower/Textures/Tower_Top_Dif.png.meta
+CheckKnight/Assets/Chess Set.meta
+CheckKnight/Assets/Chess Set/Chess Set.fbx
+CheckKnight/Assets/Chess Set/Chess Set.fbx.meta
+CheckKnight/Assets/Chess Set/Materials.meta
+CheckKnight/Assets/Chess Set/Materials/Base Green.mat
+CheckKnight/Assets/Chess Set/Materials/Base Green.mat.meta
+CheckKnight/Assets/Chess Set/Materials/Black Pieces.mat
+CheckKnight/Assets/Chess Set/Materials/Black Pieces.mat.meta
+CheckKnight/Assets/Chess Set/Materials/Black Squares.mat
+CheckKnight/Assets/Chess Set/Materials/Black Squares.mat.meta
+CheckKnight/Assets/Chess Set/Materials/Chess Board.mat
+CheckKnight/Assets/Chess Set/Materials/Chess Board.mat.meta
+CheckKnight/Assets/Chess Set/Materials/White Line.mat
+CheckKnight/Assets/Chess Set/Materials/White Line.mat.meta
+CheckKnight/Assets/Chess Set/Materials/White Pieces.mat

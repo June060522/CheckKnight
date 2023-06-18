@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BlackKing : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class BlackKing : MonoBehaviour
 
     [SerializeField] private int xIndex = 3;
     [SerializeField] private int yIndex = 0;
-
+    [SerializeField] private GameObject player;
     public int x => xIndex;
     public int y => yIndex;
 
@@ -48,19 +49,8 @@ public class BlackKing : MonoBehaviour
         xIndex--;
     }
 
-    private void Die()
+    public void GameOver()
     {
-        Debug.Log(Board.Instance.board[xIndex, yIndex]);
-        if (Board.Instance.board[xIndex, yIndex] == 7)
-        {
-            StartCoroutine(IDie());
-        }
-    }
-
-    IEnumerator IDie()
-    {
-        isAlive = false;
-        yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
+        PlayButtonManager.Instance.ClickQuit();
     }
 }

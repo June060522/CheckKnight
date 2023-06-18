@@ -14,57 +14,62 @@ public class CircleWall : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.position.z > transform.position.z)
-            isUp = true;
-        else
-            isUp = false;
-
-        if(other.transform.position.x < transform.position.x)
-            isLeft = true;
-        else
-            isLeft = false;
-
-        Board.SetActive(true);
-
-        if (isUp)
+        if (other.CompareTag("Player"))
         {
-            if(isLeft)
-            {
-                other.transform.position = 
-                    new Vector3(transform.position.x + 10f, other.transform.position.y, transform.position.z - 10f);
+            LimitMove.Instance.move--;
 
-                BlackKing.Instance.MoveRight();
-                BlackKing.Instance.MoveDown();
+            if (other.transform.position.z > transform.position.z)
+                isUp = true;
+            else
+                isUp = false;
+
+            if (other.transform.position.x < transform.position.x)
+                isLeft = true;
+            else
+                isLeft = false;
+
+            Board.SetActive(true);
+            CheckMark.Instance.Input(BlackKing.Instance.x, BlackKing.Instance.y);
+            if (isUp)
+            {
+                if (isLeft)
+                {
+                    other.transform.position =
+                        new Vector3(transform.position.x + 10f, other.transform.position.y, transform.position.z - 10f);
+
+                    BlackKing.Instance.MoveRight();
+                    BlackKing.Instance.MoveDown();
+                }
+                else
+                {
+                    other.transform.position =
+                        new Vector3(transform.position.x - 10f, other.transform.position.y, transform.position.z - 10f);
+
+                    BlackKing.Instance.MoveLeft();
+                    BlackKing.Instance.MoveDown();
+                }
             }
             else
             {
-                other.transform.position = 
-                    new Vector3(transform.position.x - 10f, other.transform.position.y, transform.position.z - 10f);
+                if (isLeft)
+                {
+                    other.transform.position =
+                        new Vector3(transform.position.x + 10f, other.transform.position.y, transform.position.z + 10f);
 
-                BlackKing.Instance.MoveLeft();
-                BlackKing.Instance.MoveDown();
+                    BlackKing.Instance.MoveRight();
+                    BlackKing.Instance.MoveUp();
+                }
+                else
+                {
+                    other.transform.position =
+                        new Vector3(transform.position.x - 10f, other.transform.position.y, transform.position.z + 10f);
+
+                    BlackKing.Instance.MoveLeft();
+                    BlackKing.Instance.MoveUp();
+                }
             }
+
+            Board.SetActive(false);
         }
-        else
-        {
-            if (isLeft)
-            {
-                other.transform.position = 
-                    new Vector3(transform.position.x + 10f, other.transform.position.y, transform.position.z + 10f);
-
-                BlackKing.Instance.MoveRight();
-                BlackKing.Instance.MoveUp();
-            }
-            else
-            {
-                other.transform.position = 
-                    new Vector3(transform.position.x - 10f, other.transform.position.y, transform.position.z + 10f);
-
-                BlackKing.Instance.MoveLeft();
-                BlackKing.Instance.MoveUp();
-            }
-        }
-
-        Board.SetActive(false);
     }
 }

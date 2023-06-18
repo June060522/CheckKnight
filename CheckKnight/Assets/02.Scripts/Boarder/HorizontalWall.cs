@@ -13,8 +13,10 @@ public class HorizontalWall : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Board.SetActive(true);
+            LimitMove.Instance.move--;
 
+            Board.SetActive(true);
+            CheckMark.Instance.Input(BlackKing.Instance.x, BlackKing.Instance.y);
             if (other.transform.position.x > transform.position.x)
             {
                 other.transform.position = new Vector3(transform.position.x - 3f,other.transform.position.y,other.transform.position.z);

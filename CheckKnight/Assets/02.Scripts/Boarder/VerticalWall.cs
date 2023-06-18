@@ -13,8 +13,10 @@ public class VerticalWall : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Board.SetActive(true);
+            LimitMove.Instance.move--;
 
+            Board.SetActive(true);
+            CheckMark.Instance.Input(BlackKing.Instance.x, BlackKing.Instance.y);
             if (other.transform.position.z > transform.position.z)
             {
                 other.transform.position = new Vector3(other.transform.position.x, other.transform.position.y, transform.position.z - 3f);
