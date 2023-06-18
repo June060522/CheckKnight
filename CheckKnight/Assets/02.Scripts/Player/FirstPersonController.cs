@@ -11,6 +11,9 @@ using UnityEditor;
 
 public class FirstPersonController : MonoBehaviour
 {
+    public static FirstPersonController Instance;
+
+    public bool isSwap = false;
     [SerializeField] GameObject BoardImg;
     [SerializeField] Image blackScreen;
 
@@ -131,6 +134,8 @@ public class FirstPersonController : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
+
         rb = GetComponent<Rigidbody>();
 
         crosshairObject = GetComponentInChildren<Image>();
@@ -374,7 +379,15 @@ public class FirstPersonController : MonoBehaviour
         if (playerCanMove && !BoardImg.activeSelf)
         {
             // Calculate how fast we should be moving
-            Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            Vector3 targetVelocity;
+            if (!isSwap)
+            {
+                targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            }
+            else
+            {
+                targetVelocity = new Vector3(Input.GetAxis("Vertical"), 0, Input.GetAxis("Horizontal"));
+            }
 
             // Checks if player is walking and isGrounded
             // Will allow head bob
