@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
             enemy.SetActive(true);
         }
 
-        if (transform.childCount - 1 == 0)
+        if (time <= 0)
         {
             EndEvent();
             Destroy(gameObject);

@@ -17,4 +17,10 @@ public class FollowEnemy : MonoBehaviour
     {
         agent.SetDestination(m_Target.position);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+            HP.Instance.hp--;
+    }
 }

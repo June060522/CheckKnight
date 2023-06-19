@@ -16,7 +16,7 @@ public class BlackKing : MonoBehaviour
     RectTransform rect;
     int blocksize = 95;
 
-    bool isAlive = true;
+    //bool isAlive = true;
     private void Awake()
     {
         Instance = this;

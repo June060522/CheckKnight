@@ -15,38 +15,39 @@ public class CreateBoarder : MonoBehaviour
     [SerializeField] GameObject circle;
     [SerializeField] GameObject wall;
     [SerializeField] GameObject VerticalWall;
-    //private void Start()
-    //{
-    //    if (cylinder)
-    //    {
-    //        GameObject obj = Instantiate(circle, transform);
-    //        obj.transform.position = new Vector3(transform.position.x - 37.5f, transform.position.y, transform.position.z + 75);
-    //    }
 
-    //    if (left)
-    //    {
-    //        GameObject obj = Instantiate(wall, transform);
-    //        obj.transform.position = new Vector3(transform.position.x - 37.5f, transform.position.y, transform.position.z + 37.5f);
-    //        obj.transform.rotation = Quaternion.Euler(0, 90, 0);
-    //    }
+    public void Create()
+    {
+        if (cylinder)
+        {
+            GameObject obj = Instantiate(circle, transform);
+            obj.transform.position = new Vector3(transform.position.x - 37.5f, transform.position.y, transform.position.z + 75);
+        }
 
-    //    if (right)
-    //    {
-    //        GameObject obj = Instantiate(wall, transform);
-    //        obj.transform.position = new Vector3(transform.position.x + 37.5f, transform.position.y, transform.position.z + 37.5f);
-    //        obj.transform.rotation = Quaternion.Euler(0, 90, 0);
-    //    }
+        if (left)
+        {
+            GameObject obj = Instantiate(wall, transform);
+            obj.transform.position = new Vector3(transform.position.x - 37.5f, transform.position.y, transform.position.z + 37.5f);
+            obj.transform.rotation = Quaternion.Euler(0, 90, 0);
+        }
 
-    //    if (up)
-    //    {
-    //        GameObject obj = Instantiate(VerticalWall, transform);
-    //        obj.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 75);
-    //    }
+        if (right)
+        {
+            GameObject obj = Instantiate(wall, transform);
+            obj.transform.position = new Vector3(transform.position.x + 37.5f, transform.position.y, transform.position.z + 37.5f);
+            obj.transform.rotation = Quaternion.Euler(0, 90, 0);
+        }
 
-    //    if (down)
-    //    {
-    //        GameObject obj = Instantiate(VerticalWall, transform);
-    //        obj.transform.position = transform.position;
-    //    }
-    //}
+        if (up)
+        {
+            GameObject obj = Instantiate(VerticalWall, transform);
+            obj.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 75);
+        }
+
+        if (down)
+        {
+            GameObject obj = Instantiate(VerticalWall, transform);
+            obj.transform.position = transform.position;
+        }
+    }
 }
