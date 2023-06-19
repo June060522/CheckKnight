@@ -7,6 +7,7 @@ public class CircleWall : MonoBehaviour
     GameObject Board;
     bool isLeft = false;
     bool isUp = false;
+    [SerializeField] AudioClip movewall;
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class CircleWall : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            EffectAudio.Instance.ListenEff(movewall);
             LimitMove.Instance.move--;
 
             if (other.transform.position.z > transform.position.z)

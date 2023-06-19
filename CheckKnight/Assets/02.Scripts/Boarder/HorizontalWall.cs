@@ -5,6 +5,7 @@ using UnityEngine;
 public class HorizontalWall : MonoBehaviour
 {
     GameObject Board;
+    [SerializeField] AudioClip movewall;
     private void Awake()
     {
         Board = GameObject.Find("BoradImg");
@@ -13,6 +14,7 @@ public class HorizontalWall : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            EffectAudio.Instance.ListenEff(movewall);
             LimitMove.Instance.move--;
 
             Board.SetActive(true);

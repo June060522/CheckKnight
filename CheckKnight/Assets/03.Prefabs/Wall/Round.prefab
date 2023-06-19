@@ -111,3 +111,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc86662bce10698478ffdcd27465d836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movewall: {fileID: 8300000, guid: 163e01aef9c70fd49a9b215d563ed98f, type: 3}

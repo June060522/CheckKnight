@@ -38,4 +38,9 @@ public class EffectAudio : MonoBehaviour
         _audio.clip = a;
         _audio.Play();
     }
+
+    public void Stop()
+    {
+        _audio.Stop();
+    }
 }

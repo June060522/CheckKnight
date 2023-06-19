@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Board : MonoBehaviour
 {
     public static Board Instance;
     public int[,] board = new int[8, 8];
 
+    public int[] availableX;
+    public int[] availableY;
     private void Awake()
     {
-        
         if (Instance == null)
             Instance = this;
         else
@@ -17,22 +19,29 @@ public class Board : MonoBehaviour
             Debug.LogError($"{transform} : Board Instance is multiply!");
             Destroy(gameObject);
         }
-        for (int i = 0; i < 8; i++)
+
+        for (int i = 0; i < availableX.Length; i++)
         {
-            for (int j = 0; j < 8; j++)
-            {
-                board[i, j] = 0;
-            }
+            CheckMark.Instance.InputRedZone(availableX[i], availableY[i]);
         }
     }
 
-    private void Start()
+    private void Update()
     {
         LoadMap();
     }
 
     private void LoadMap()
     {
+        for (int i = 0; i < 8; i++)
+        {
+            for (int j = 0; j < 8; j++)
+            {
+                if (board[i, j] == 7)
+                    board[i, j] = 0;
+            }
+        }
+
         for (int i = 0; i < 8; i++)
         {
             for (int j = 0; j < 8; j++)
@@ -203,6 +212,16 @@ public class Board : MonoBehaviour
                         break;
                 }
             }
+        }
+
+        for(int i = 0; i < availableX.Length; i++)
+        {
+            board[availableX[i],availableY[i]] = 0;
+        }
+        
+        if (board[BlackKing.Instance.x, BlackKing.Instance.y] == 7)
+        {
+            HP.Instance.hp = 0;
         }
     }
 }

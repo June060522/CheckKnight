@@ -14,9 +14,15 @@ public class FirstPersonController : MonoBehaviour
     public static FirstPersonController Instance;
 
     public bool isSwap = false;
+    public bool CanAttack = true;
     [SerializeField] GameObject BoardImg;
     [SerializeField] Image blackScreen;
 
+    public AudioSource _audio;
+
+    public Slider EffVolume;
+
+    private float time = 0f;
     private Rigidbody rb;
 
     #region Camera Movement Variables
@@ -154,6 +160,7 @@ public class FirstPersonController : MonoBehaviour
 
     void Start()
     {
+        _audio.volume = EffVolume.value;
         BoardImg.SetActive(false);
 
         if(lockCursor)
@@ -210,6 +217,8 @@ public class FirstPersonController : MonoBehaviour
 
     private void Update()
     {
+        
+        time -= Time.deltaTime;
         #region Camera
 
         // Control camera movement
@@ -267,9 +276,22 @@ public class FirstPersonController : MonoBehaviour
             }
 
             // Lerps camera.fieldOfView to allow for a smooth transistion
-            if(isZoomed)
+            if(isZoomed && !BoardImg.activeSelf && CanAttack)
             {
                 playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, zoomFOV, zoomStepTime * Time.deltaTime);
+
+                Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
+                RaycastHit[] hits = Physics.SphereCastAll(ray, 5f);
+
+                foreach (RaycastHit hit in hits)
+                {
+                    if (hit.collider.CompareTag("Enemy"))
+                    {
+                        GameObject enemyObject = hit.collider.gameObject;
+                        enemyObject.GetComponent<BossHP>().hp -= Time.deltaTime;
+                    }
+                }
+
             }
             else if(!isZoomed && !isSprinting)
             {
@@ -389,6 +411,7 @@ public class FirstPersonController : MonoBehaviour
                 targetVelocity = new Vector3(Input.GetAxis("Vertical"), 0, Input.GetAxis("Horizontal"));
             }
 
+
             // Checks if player is walking and isGrounded
             // Will allow head bob
             if (targetVelocity.x != 0 || targetVelocity.z != 0 && isGrounded)
@@ -399,6 +422,16 @@ public class FirstPersonController : MonoBehaviour
             {
                 isWalking = false;
             }
+            if((targetVelocity.x != 0 || targetVelocity.z != 0) && isWalking)
+            {
+                if(time <= 0f)
+                {
+                    time = 0.6f;
+                    _audio.Play();
+                }
+            }
+            else
+                _audio.Stop();
 
             // All movement calculations shile sprint is active
             if (enableSprint && Input.GetKey(sprintKey) && sprintRemaining > 0f && !isSprintCooldown)

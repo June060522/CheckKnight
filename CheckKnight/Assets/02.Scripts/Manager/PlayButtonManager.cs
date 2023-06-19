@@ -10,6 +10,7 @@ public class PlayButtonManager : MonoBehaviour
 
     [SerializeField] private GameObject blackScreen;
     [SerializeField] GameObject escPanel;
+    [SerializeField] GameObject minimap;
     [SerializeField] AudioClip esc;
     [SerializeField] AudioClip btnclick;
 
@@ -19,7 +20,7 @@ public class PlayButtonManager : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && !blackScreen.activeSelf)
+        if(Input.GetKeyDown(KeyCode.Escape) && !blackScreen.activeSelf && !minimap.activeSelf)
         {
             EffectAudio.Instance.ListenEff(esc);
             if(escPanel.activeSelf)
