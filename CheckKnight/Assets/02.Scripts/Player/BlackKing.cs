@@ -32,21 +32,25 @@ public class BlackKing : MonoBehaviour
     {
         rect.position = new Vector2(rect.position.x, rect.position.y + blocksize);
         yIndex++;
+        transform.SetAsLastSibling();
     }
     public void MoveDown()
     {
         rect.position = new Vector2(rect.position.x, rect.position.y - blocksize);
         yIndex--;
+        transform.SetAsLastSibling();
     }
     public void MoveRight()
     {
         rect.position = new Vector2(rect.position.x + blocksize, rect.position.y);
         xIndex++;
+        transform.SetAsLastSibling();
     }
     public void MoveLeft()
     {
         rect.position = new Vector2(rect.position.x - blocksize, rect.position.y);
         xIndex--;
+        transform.SetAsLastSibling();
     }
 
     public void GameOver()

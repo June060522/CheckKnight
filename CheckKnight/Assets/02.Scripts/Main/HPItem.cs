@@ -15,7 +15,7 @@ public class HPItem : MonoBehaviour
     {
         if (other.transform.CompareTag("Player"))
         {
-            HP.Instance.hp += 3;
+            HP.Instance.hp += 2;
             Destroy(gameObject);
         }
     }

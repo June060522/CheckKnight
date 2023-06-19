@@ -15,7 +15,7 @@ public class MoveItem : MonoBehaviour
     {
         if (other.transform.CompareTag("Player"))
         {
-            LimitMove.Instance.move += 5;
+            LimitMove.Instance.move += 3;
             Destroy(gameObject);
         }
     }
