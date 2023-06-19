@@ -8,8 +8,10 @@ public class PlayButtonManager : MonoBehaviour
 {
     public static PlayButtonManager Instance;
 
+    [SerializeField] private GameObject blackScreen;
     [SerializeField] GameObject escPanel;
-
+    [SerializeField] AudioClip esc;
+    [SerializeField] AudioClip btnclick;
 
     private void Awake()
     {
@@ -17,8 +19,9 @@ public class PlayButtonManager : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && !blackScreen.activeSelf)
         {
+            EffectAudio.Instance.ListenEff(esc);
             if(escPanel.activeSelf)
             {
                 Cursor.lockState = CursorLockMode.Locked;
@@ -38,6 +41,7 @@ public class PlayButtonManager : MonoBehaviour
 
     public void ClickQuit()
     {
+        EffectAudio.Instance.ListenEff(btnclick);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         SceneManager.LoadScene("Intro");
@@ -46,6 +50,7 @@ public class PlayButtonManager : MonoBehaviour
 
     public void ClickX()
     {
+        EffectAudio.Instance.ListenEff(btnclick);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         escPanel.SetActive(false);

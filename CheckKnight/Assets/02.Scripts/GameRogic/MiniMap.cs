@@ -6,10 +6,12 @@ public class MiniMap : MonoBehaviour
 {
     [SerializeField] GameObject Minimap;
     [SerializeField] GameObject Minimap2;
+    [SerializeField] AudioClip board;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.M))
         {
+            EffectAudio.Instance.ListenEff(board);
             if(Minimap.activeSelf)
             {
                 Minimap2.SetActive(false);

@@ -10,6 +10,7 @@ public class Explain : MonoBehaviour
     [SerializeField] GameObject leftBtn;
     [SerializeField] [TextArea] string[] explainTxt;
     [SerializeField] TextMeshProUGUI tmpro;
+    [SerializeField] AudioClip btnClick;
 
     private void OnEnable()
     {
@@ -32,12 +33,14 @@ public class Explain : MonoBehaviour
 
     public void Left()
     {
+        EffectAudio.Instance.ListenEff(btnClick);
         index--;
         Page();
     }
 
     public void Right()
     {
+        EffectAudio.Instance.ListenEff(btnClick);
         index++;
         Page();
     }
