@@ -8,6 +8,11 @@ public class King : MonoBehaviour
     bool one = false;
     bool two = false;
     bool three = false;
+
+    [SerializeField] string stage;
+    [SerializeField] GameObject bullet;
+    [SerializeField] GameObject bullet1;
+
     private void Awake()
     {
         bossHP = GetComponent<BossHP>();
@@ -16,6 +21,7 @@ public class King : MonoBehaviour
     private void OnEnable()
     {
         StartCoroutine(Pattern());
+        StartCoroutine(Pattern0());
         StartCoroutine(Pattern1());
     }
 
@@ -41,18 +47,34 @@ public class King : MonoBehaviour
             yield return null;
         }
     }
+    IEnumerator Pattern0()
+    {
+        while (true)
+        {
+            Instantiate(bullet, new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z), Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
     IEnumerator Pattern1()
     {
         while (true)
         {
-            yield return null;
+            Instantiate(bullet1, new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z), Quaternion.identity);
+            yield return new WaitForSeconds(15f);
         }
     }
     IEnumerator Pattern2()
     {
         while (true)
         {
-            yield return null;
+            FirstPersonController.Instance.CanAttack = false;
+            FirstPersonController.Instance.playerCanMove = false;
+            yield return new WaitForSeconds(1f);
+            FirstPersonController.Instance.playerCanMove = true;
+            FirstPersonController.Instance.CanAttack = true;
+
+            yield return new WaitForSeconds(3f);
         }
     }
     public void Pattern3()
@@ -67,5 +89,10 @@ public class King : MonoBehaviour
     private void OnDisable()
     {
         StopAllCoroutines();
+        if(bossHP.hp <= 0)
+        {
+            PlayerPrefs.SetInt(stage, 1);
+            HP.Instance.hp = 0;
+        }
     }
 }

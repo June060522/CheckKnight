@@ -23,4 +23,9 @@ public class BossPos : MonoBehaviour
             enemy.SetActive(true);
         }
     }
+
+    private void OnDisable()
+    {
+        Board.Instance.board[xIndex, yIndex] = 0;
+    }
 }
