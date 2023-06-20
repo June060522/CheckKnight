@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         transform.position += dir.normalized * 4f * Time.deltaTime;
-        Destroy(gameObject,6f);
+        Destroy(gameObject,12f);
     }
 
     private void OnTriggerEnter(Collider other)

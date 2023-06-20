@@ -288,7 +288,7 @@ public class FirstPersonController : MonoBehaviour
                     if (hit.collider.CompareTag("Enemy"))
                     {
                         GameObject enemyObject = hit.collider.gameObject;
-                        enemyObject.GetComponent<BossHP>().hp -= Time.deltaTime;
+                        enemyObject.GetComponent<BossHP>().hp -= Time.deltaTime / 3;
                     }
                 }
 

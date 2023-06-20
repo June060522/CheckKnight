@@ -13,7 +13,7 @@ public class Bullet1 : MonoBehaviour
         target = GameObject.Find("Player");
         dir = target.transform.position - transform.position;
         transform.position += dir.normalized * 4f * Time.deltaTime;
-        Destroy(gameObject,5f);
+        Destroy(gameObject,12f);
     }
 
     private void OnTriggerEnter(Collider other)
